@@ -294,6 +294,22 @@ def calc_product(
     return {}, result
 
 
+def calc_failover(
+    sensor_values: list[tuple[str, float, State]],
+) -> tuple[dict[str, str | None], float | None]:
+    """Calculate last value."""
+    last_updated: datetime | None = None
+    entity_id: str | None = None
+    last: float | None = None
+    first_element = sensor_values[0]
+    entity_id = first_element[0]
+    last = first_element[1]
+    last_updated = first_element[2].last_updated
+
+    attributes = {ATTR_ENTITY_ID: entity_id}
+    return attributes, last
+
+
 CALC_TYPES: dict[
     str,
     Callable[
@@ -309,6 +325,7 @@ CALC_TYPES: dict[
     "stdev": calc_stdev,
     "sum": calc_sum,
     "product": calc_product,
+    "failover": calc_failover,
 }
 
 
