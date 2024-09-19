@@ -77,6 +77,7 @@ ATTR_RANGE = "range"
 ATTR_STDEV = "stdev"
 ATTR_SUM = "sum"
 ATTR_PRODUCT = "product"
+ATTR_FAILOVER = "failover"
 SENSOR_TYPES = {
     ATTR_MIN_VALUE: "min",
     ATTR_MAX_VALUE: "max",
@@ -87,6 +88,7 @@ SENSOR_TYPES = {
     ATTR_STDEV: "stdev",
     ATTR_SUM: "sum",
     ATTR_PRODUCT: "product",
+    ATTR_FAILOVER: "failover",
 }
 SENSOR_TYPE_TO_ATTR = {v: k for k, v in SENSOR_TYPES.items()}
 
